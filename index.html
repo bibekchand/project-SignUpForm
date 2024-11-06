@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        font-family: "Norse-Bold";
+        src: url(norsebold.otf) format("opentype");
+      }
+      :root {
+        --show: hidden;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        overflow-wrap: break-word;
+        font-family: "Josefin Sans", sans-serif;
+        line-height: 1.5;
+        background-color: #fce2e9;
+      }
+      .left {
+        /* font-family: "Norse-Bold"; */
+        width: 30vw;
+        height: 100%;
+        background-image: url(the\ image.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+      }
+
+      .right {
+        display: flex;
+        --set-width: calc(100vw - 50vw);
+      }
+      .sectionone {
+        font-size: calc(0.9rem + 0.9vw);
+        background-color: #fce2e9;
+        color: #040c18;
+        width: var(--set-width);
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: end;
+        padding-left: calc(20px + 2vw);
+        padding-bottom: calc(10px + 2vw);
+      }
+      p {
+        max-inline-size: 45ch;
+      }
+      .form-content {
+        padding: 10px calc(20px + 2vw);
+        height: 35vh;
+        background-color: #fce2e9;
+        color: #040c18;
+      }
+      .form-content > div:first-child {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+      .first-col,
+      .second-col {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      input,
+      button {
+        font: inherit;
+        width: max(100px, 20vw);
+        appearance: none;
+      }
+      input {
+        box-sizing: border-box;
+        border: 1px solid rgb(219, 207, 207);
+        border-radius: 5px;
+        height: 30px;
+        padding: 5px;
+
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+      }
+      input#email:invalid {
+        border: 1px solid red;
+      }
+      input:focus {
+        border: 1px solid blue;
+        box-shadow: 1px 1px 10px rgb(205, 201, 201);
+      }
+
+      .form-content > div:nth-child(2) {
+        display: flex;
+        gap: calc(10px + 4vw);
+        padding-bottom: 10px;
+      }
+      label {
+        line-height: 1;
+        font-size: 0.6rem;
+
+        word-spacing: 2px;
+      }
+
+      .first-col > div,
+      .second-col > div {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+      .sectiontwo {
+        width: var(--set-width);
+        padding: 20px calc(20px + 2vw);
+        background-color: #fce2e9;
+        color: #040c18;
+        height: calc(100vh - 40vh - 35vh);
+      }
+      button {
+        width: 150px;
+        border-radius: 8px;
+        padding: 5px;
+        border: 2px solid #c631cb;
+        cursor: pointer;
+        background-color: #ff04def6;
+      }
+      input:required + span::before {
+        content: "*Required";
+        font-size: 0.7rem;
+        color: rgb(1, 1, 1);
+        padding: 1px;
+        position: absolute;
+        right: 0px;
+        top: -30%;
+      }
+      input#password + span::after {
+        content: "*Passwords do not match";
+        font-size: 0.7rem;
+        color: rgb(247, 4, 4);
+        position: absolute;
+        visibility: var(--show);
+      }
+      a:link {
+        color: rgb(244, 3, 75);
+        text-decoration: none;
+      }
+      input#email:invalid + span::before {
+        content: "* Your email is invalid";
+        position: absolute;
+        font-size: 0.7rem;
+        top: -5px;
+        right: 0;
+        color: red;
+      }
+      button:active {
+        border: 2px solid rgb(255, 255, 255);
+      }
+      a:visited {
+        color: rgb(0, 187, 255);
+      }
+      .sectionone em {
+        font-size: 2rem;
+        font-style: italic;
+        font-weight: bold;
+      }
+      .footer{
+        width: 10vw;
+        height:100vh;
+        position:relative;
+      }
+      .footer span{
+        position:absolute;
+        transform: rotate(90deg);
+        bottom:50%;
+        right:0;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="right">
+      <form action="">
+        <div class="sectionone">
+          <p>
+            Did you ever wanted to get better, stronger, faster, and
+            <em>younger?</em>.
+            <br />
+            Sign Up for <em>The Substance </em> right now.
+          </p>
+          <p>Remember You are <em>one</em>.</p>
+        </div>
+        <div class="form-content">
+          <div>Let's do this!</div>
+          <div>
+            <div class="first-col">
+              <div>
+                <label for="first-name">FIRST NAME</label>
+                <input type="text" id="first-name" required />
+                <span></span>
+              </div>
+              <div>
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" />
+                <span></span>
+              </div>
+              <div>
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" required />
+                <span></span>
+              </div>
+            </div>
+            <div class="second-col">
+              <div>
+                <label for="last-name">LAST NAME</label>
+                <input type="text" id="last-name" required />
+                <span></span>
+              </div>
+              <div>
+                <label for="phone-number">PHONE NUMBER</label>
+                <input type="tel" id="phone-number" />
+              </div>
+              <div>
+                <label for="confirm-password">CONFIRM PASSWORD</label>
+                <input type="password" id="confirm-password" required />
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sectiontwo">
+          <button type="submit">Change your life</button>
+          <p style="margin-top: 20px">
+            Already have an account?
+            <a href="https://www.theodinproject.com/">Log in</a>
+          </p>
+        </div>
+      </form>
+    </div>
+    <div class="left"></div>
+    <div class="footer">
+      <span>Copyright &copy;<a href="https://github.com/bibekchand">BibekChand</a></span>
+    </div>
+    <script>
+      function setBorderColor(){    
+        if (confirmPass.value && (confirmPass.value !== pass.value)) {
+          document.documentElement.style.setProperty("--show", "visible");
+          pass.style.setProperty("border", "1px solid red")
+          confirmPass.style.setProperty ("border", "1px solid red")
+        } else if (confirmPass.value === pass.value) {
+          document.documentElement.style.setProperty("--show", "hidden");
+          confirmPass.style.setProperty("border", "1px solid white");
+          pass.style.setProperty("border", "1px solid white");
+        }
+      }
+      let pass = document.querySelector("#password");
+      let confirmPass = document.querySelector("#confirm-password");
+      confirmPass.addEventListener("input", setBorderColor);
+      pass.addEventListener("input", setBorderColor);
+    </script>
+  </body>
+</html>
